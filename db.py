@@ -9,12 +9,11 @@ class Base(DeclarativeBase):
 engine = create_engine(
     Config.SQLALCHEMY_DATABASE_URL,
     echo=True,
-    pool_pre_ping=True,
-    pool_recycle=3600,
+    pool_pre_ping=True
 )
 
 SessionLocal = sessionmaker(
     bind=engine,
     autoflush=False,
-    autocommit=False,
+    autocommit=False
 )
