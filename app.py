@@ -1,11 +1,8 @@
 from flask import Flask
 
-from app_kernel import create_app
-
+# from app_kernel import create_app
 # app = create_app()
 app = Flask(__name__)
-
-
 
 
 if __name__ == "__main__":
