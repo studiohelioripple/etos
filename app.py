@@ -1,17 +1,8 @@
-from flask import Flask
+from app_kernel import create_app
 
-app = Flask(__name__)
-
-@app.route("/")
-def hello_world():
-    # Flask automatically converts dictionaries to JSON
-    return {"message": "Hello, World!"}
+app = create_app()
 
 
-@app.route("/<trest>")
-def hello_trest(trest):
-    # Flask automatically converts dictionaries to JSON
-    return {"message": f"Hello, {trest}!"}
 
 
 if __name__ == "__main__":
