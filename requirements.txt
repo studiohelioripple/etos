@@ -1,6 +1,5 @@
-flask==3.0.0
-gunicorn==21.2.0
-sqlalchemy
-pymysql
+Flask
+SQLAlchemy
+PyMySQL
 python-dotenv
 alembic
