@@ -4,15 +4,22 @@ from sqlalchemy.exc import IntegrityError
 
 from db import SessionLocal, engine, Base
 from models import User
+from config import Config
 
 app = Flask(__name__)
 
 # Temporary for learning:
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
 
 @app.route("/")
 def home():
     return {"message": "Flask + MySQL app is running"}
+
+@app.route("/env")
+def get_env():
+    w= Config.__dict__
+    return {"configs": str(w) }
+
 
 # @app.route("/users", methods=["POST"])
 # def create_user():
