@@ -21,8 +21,8 @@ def get_env():
     connection = pymysql.connect(
     host="localhost",
     user="root",
-    password="your_password",
-    database="simpledb",
+    password=Config.DB_PASSWORD,
+    database=Config.DB_NAME,
     port=3306,
     cursorclass=pymysql.cursors.DictCursor)
     try:
