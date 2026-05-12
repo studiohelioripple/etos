@@ -27,7 +27,7 @@ def get_env():
     cursorclass=pymysql.cursors.DictCursor)
     try:
         with connection.cursor() as cursor:
-            cursor.execute("SELECT DATABASE() AS db_name")
+            cursor.execute("SELECT DATABASE() AS elequa")
             result = cursor.fetchone()
             print(result)
             return {"trial": "is ok" }
