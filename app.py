@@ -18,6 +18,12 @@ def home():
 
 @app.route("/env")
 def get_env():
+    
+    
+    return {"configs": Config.SQLALCHEMY_DATABASE_URL }
+
+@app.route("/co")
+def tryto_env():
     connection = pymysql.connect(
     host="localhost",
     user="root",
