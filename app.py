@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
-from sqlalchemy import select
-from sqlalchemy.exc import IntegrityError
+# from sqlalchemy import select
+# from sqlalchemy.exc import IntegrityError
 
 from db import SessionLocal, engine, Base
 from models import User
 from config import Config
+import pymysql
 
 app = Flask(__name__)
 
@@ -17,8 +18,26 @@ def home():
 
 @app.route("/env")
 def get_env():
-    w= Config.__dict__
-    return {"configs": str(w) }
+    connection = pymysql.connect(
+    host="localhost",
+    user="root",
+    password="your_password",
+    database="simpledb",
+    port=3306,
+    cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT DATABASE() AS db_name")
+            result = cursor.fetchone()
+            print(result)
+            return {"trial": "is ok" }
+            
+
+    finally:
+        connection.close()
+        
+    
+    return {"configs": Config.SQLALCHEMY_DATABASE_URL }
 
 
 # @app.route("/users", methods=["POST"])
