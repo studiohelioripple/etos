@@ -2,10 +2,10 @@ from flask import Flask, request, jsonify
 # from sqlalchemy import select
 # from sqlalchemy.exc import IntegrityError
 
-from db import SessionLocal, engine, Base
-from models import User
+# from db import SessionLocal, engine, Base
+# from models import User
 from config import Config
-import pymysql
+# import pymysql
 
 app = Flask(__name__)
 
