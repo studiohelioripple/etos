@@ -10,7 +10,7 @@ from config import Config
 app = Flask(__name__)
 
 # Temporary for learning:
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
 
 @app.route("/")
 def home():
