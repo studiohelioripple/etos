@@ -22,28 +22,28 @@ def get_env():
     
     return {"configs": Config.SQLALCHEMY_DATABASE_URL }
 
-@app.route("/co")
-def tryto_env():
-    connection = pymysql.connect(
-    host="localhost",
-    user="root",
-    password=Config.DB_PASSWORD,
-    database=Config.DB_NAME,
-    port=3306,
-    cursorclass=pymysql.cursors.DictCursor)
-    try:
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT DATABASE() AS elequa")
-            result = cursor.fetchone()
-            print(result)
-            return {"trial": "is ok" }
+# @app.route("/co")
+# def tryto_env():
+#     connection = pymysql.connect(
+#     host="localhost",
+#     user="root",
+#     password=Config.DB_PASSWORD,
+#     database=Config.DB_NAME,
+#     port=3306,
+#     cursorclass=pymysql.cursors.DictCursor)
+#     try:
+#         with connection.cursor() as cursor:
+#             cursor.execute("SELECT DATABASE() AS elequa")
+#             result = cursor.fetchone()
+#             print(result)
+#             return {"trial": "is ok" }
             
 
-    finally:
-        connection.close()
+#     finally:
+#         connection.close()
         
     
-    return {"configs": Config.SQLALCHEMY_DATABASE_URL }
+#     return {"configs": Config.SQLALCHEMY_DATABASE_URL }
 
 
 # @app.route("/users", methods=["POST"])
